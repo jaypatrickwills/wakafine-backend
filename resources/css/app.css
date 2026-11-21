@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Anton', 'Impact', 'Arial Narrow Bold', sans-serif;
+
+    /* Wakafine brand palette (see .devin/skills/wakafine-design) */
+    --color-mandarin: #fd550a;
+    --color-mandarin-dark: #d94300;
+    --color-forest: #005c47;
+    --color-forest-dark: #003d2f;
+    --color-crest: #e0f354;
+    --color-cream: #fbefd9;
+    --color-ink: #10231d;
+}
+
+@layer components {
+    .wk-label {
+        @apply text-xs font-semibold uppercase tracking-[0.18em];
+    }
+
+    .wk-display {
+        @apply font-display uppercase leading-[0.85] tracking-tight;
+    }
+
+    .wk-cta-circle {
+        @apply inline-flex aspect-square items-center justify-center rounded-full bg-crest p-6 text-center font-display text-xl uppercase leading-none text-forest shadow-[0_10px_0_0_var(--color-forest)] transition hover:-translate-y-1 hover:shadow-[0_14px_0_0_var(--color-forest)] active:translate-y-1 active:shadow-[0_4px_0_0_var(--color-forest)];
+    }
+
+    .wk-pill {
+        @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-display text-lg uppercase tracking-wide transition;
+    }
+}
+
+@keyframes wk-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.wk-marquee {
+    animation: wk-marquee 28s linear infinite;
+}
+
+@keyframes wk-float {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-12px) rotate(-4deg); }
+}
+
+.wk-float {
+    animation: wk-float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wk-marquee, .wk-float { animation: none; }
+}
