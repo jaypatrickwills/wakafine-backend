@@ -35,6 +35,8 @@ class BookingResource extends JsonResource
             'completed_at' => $this->completed_at?->toIso8601String(),
             'cancelled_at' => $this->cancelled_at?->toIso8601String(),
             'created_at' => $this->created_at?->toIso8601String(),
+            'rider_lat' => $this->rider?->riderProfile?->current_lat,
+            'rider_lng' => $this->rider?->riderProfile?->current_lng,
             'passenger' => new UserResource($this->whenLoaded('passenger')),
             'rider' => new UserResource($this->whenLoaded('rider')),
         ];
