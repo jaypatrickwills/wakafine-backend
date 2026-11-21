@@ -43,7 +43,7 @@
         @endphp
         @foreach ($cards as $card)
             <div class="{{ $card['card'] }} {{ $card['card'] === 'bg-white' ? 'border-2 border-ink/10' : '' }} rounded-[2rem] p-5">
-                <div class="wk-label {{ $card['card'] === 'bg-crest' ? 'text-forest/70' : $card['card'] === 'bg-white' ? 'text-ink/60' : 'text-white/70' }}">{{ $card['label'] }}</div>
+                <div class="wk-label {{ $card['card'] === 'bg-crest' ? 'text-forest/70' : ($card['card'] === 'bg-white' ? 'text-ink/60' : 'text-white/70') }}">{{ $card['label'] }}</div>
                 <div class="mt-1 font-display text-5xl {{ $card['color'] }}">{{ $card['value'] }}</div>
                 @if (isset($card['sub']))
                     <div class="text-xs mt-1 {{ $card['card'] === 'bg-forest' ? 'text-white/60' : 'text-ink/50' }}">{{ $card['sub'] }}</div>
